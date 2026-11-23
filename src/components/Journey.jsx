@@ -7,21 +7,29 @@ export default function Journey() {
       <div className="mx-auto max-w-[1600px] px-5 sm:px-10">
         <SectionHead
           num="06"
-          label="The journey"
+          label="Journey"
           title={
             <>
-              From the kalari floor in Chavakkad
-              <span className="italic text-gold"> to the Biennale in Venice.</span>
+              From the Kalari
+              <span className="italic text-gold"> to the world of movement.</span>
             </>
           }
         />
+
+        <FadeUp delay={0.1}>
+          <p className="mt-8 max-w-3xl text-sm leading-relaxed text-sand sm:text-base">
+            My journey began in Kerala, where I was introduced to Kalaripayattu at the age of seven.
+            What started as martial arts training gradually became a lifelong journey of artistic
+            exploration, performance, teaching, and movement.
+          </p>
+        </FadeUp>
 
         <div className="mt-16 border-t border-bone/10">
           {JOURNEY.map((j, i) => (
             <FadeUp key={j.year + j.title} delay={Math.min(i * 0.03, 0.2)}>
               <div
-                data-testid={`journey-entry-${j.year}`}
-                className="group grid grid-cols-1 gap-2 border-b border-bone/10 py-8 transition-colors duration-500 hover:bg-bone/[0.02] sm:grid-cols-[9rem_1fr] sm:gap-10"
+                data-testid={`journey-entry-${j.year.split("–")[0].trim()}`}
+                className="group grid grid-cols-1 gap-2 border-b border-bone/10 py-8 transition-colors duration-500 hover:bg-bone/[0.02] sm:grid-cols-[10rem_1fr] sm:gap-10"
               >
                 <span className="font-mono text-xs tracking-widest text-terra sm:pt-2 sm:text-sm">
                   {j.year}

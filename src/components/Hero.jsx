@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { IMG, CONTACT } from "../data/content";
+import { IMG } from "../data/content";
 import { MaskedLine, EASE } from "./motion-primitives";
 import { scrollToId } from "../lib/scroll";
 
@@ -38,7 +38,7 @@ export default function Hero({ active }) {
           transition={{ delay: d + 0.35, duration: 0.8 }}
           className="mb-6 font-mono text-[10px] uppercase tracking-[0.4em] text-gold sm:text-[11px]"
         >
-          കളരി &nbsp;·&nbsp; Kalari with Sagar — since 1983
+          Kalaripayattu Artist &nbsp;·&nbsp; Movement Practitioner &nbsp;·&nbsp; Choreographer
         </motion.p>
 
         <h1 className="font-serif font-medium leading-[0.88] tracking-[-0.02em]">
@@ -54,10 +54,9 @@ export default function Hero({ active }) {
           initial={{ opacity: 0, y: 24 }}
           animate={active ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: d + 0.95, duration: 0.9, ease: EASE }}
-          className="mt-7 max-w-md text-sm leading-relaxed text-bone/80 sm:text-base"
+          className="mt-7 max-w-xl text-sm leading-relaxed text-bone/90 sm:text-base"
         >
-          Kalaripayattu artiste, contemporary dancer and choreographer — carrying Kerala's
-          ancient martial art onto contemporary stages, studios and screens.
+          Movement is my language. Kalari is my foundation. Exploring the connection between martial arts, contemporary dance, and the expressive power of the human body.
         </motion.p>
 
         <motion.div
@@ -68,21 +67,21 @@ export default function Hero({ active }) {
         >
           <motion.button
             data-testid="hero-cta-work"
-            onClick={() => scrollToId("works")}
+            onClick={() => scrollToId("journey")}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="rounded-full bg-gold px-7 py-3.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-gild"
           >
-            Explore the work
+            Explore My Journey
           </motion.button>
           <motion.button
             data-testid="hero-cta-book"
-            onClick={() => scrollToId("contact")}
+            onClick={() => scrollToId("works")}
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             className="rounded-full border border-bone/30 px-7 py-3.5 text-sm text-bone transition-colors duration-300 hover:border-gold hover:text-gold"
           >
-            Book a workshop
+            Discover My Works
           </motion.button>
         </motion.div>
       </motion.div>
@@ -99,7 +98,7 @@ export default function Hero({ active }) {
             <span className="block h-6 w-px animate-scroll-cue bg-gold" />
           </span>
           <span className="hidden font-mono text-[10px] uppercase tracking-[0.3em] text-bone/50 md:block">
-            Kalaripayattu · Contemporary dance · Choreography
+            Kalaripayattu · Contemporary Dance · Choreography · Movement Research
           </span>
           <span data-testid="hero-champion-meta" className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
             3× State Champion — 2× National

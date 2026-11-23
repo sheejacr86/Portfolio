@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FORMATS, OFFERINGS, MASTERCLASSES } from "../data/content";
 import { FadeUp, SectionHead } from "./motion-primitives";
+import { scrollToId } from "../lib/scroll";
 
 export default function Classes() {
   return (
@@ -8,14 +9,24 @@ export default function Classes() {
       <div className="mx-auto max-w-[1600px] px-5 sm:px-10">
         <SectionHead
           num="07"
-          label="Classes & workshops"
+          label="Classes & Workshops"
           title={
             <>
-              Train with a national champion —
-              <span className="italic text-gold"> in the kalari, the studio or your company.</span>
+              Discover the
+              <span className="italic text-gold"> power of movement.</span>
             </>
           }
         />
+
+        <FadeUp delay={0.1}>
+          <p className="mt-8 max-w-3xl text-sm leading-relaxed text-sand sm:text-base">
+            Explore the ancient martial art of Kalaripayattu and the expressive possibilities of
+            contemporary movement through classes, workshops, and personalized training. Whether
+            you are a beginner, dancer, performer, fitness enthusiast, or someone looking to
+            reconnect with your body, my sessions offer an opportunity to develop strength,
+            flexibility, discipline, awareness, and creativity.
+          </p>
+        </FadeUp>
 
         <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
           {FORMATS.map((f, i) => (
@@ -52,8 +63,11 @@ export default function Classes() {
         <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-2">
           <FadeUp>
             <div className="rounded-sm border border-bone/10 bg-coal/60 p-8" data-testid="offerings-panel">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">What you can book</p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Workshops & Masterclasses</p>
+              <p className="mt-3 text-xs leading-relaxed text-sand">
+                Specialized workshops and masterclasses are available for:
+              </p>
+              <div className="mt-5 flex flex-wrap gap-2.5">
                 {OFFERINGS.map((o) => (
                   <span
                     key={o}
@@ -63,24 +77,57 @@ export default function Classes() {
                   </span>
                 ))}
               </div>
-              <p className="mt-8 text-sm leading-relaxed text-sand">
-                Every format can be adapted — from a single masterclass to a three-month corporate
-                programme, a school kalari for kids, or full choreography for stage and screen.
+              <p className="mt-6 text-xs leading-relaxed text-sand">
+                Workshops can be designed according to the participants' experience, goals, and requirements.
               </p>
+              <div className="mt-8 border-t border-bone/10 pt-6">
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Corporate Workshops</p>
+                <p className="mt-2 text-sm leading-relaxed text-sand">
+                  Experience movement as a tool for physical wellness, team engagement, creativity,
+                  and stress relief. Sessions combine movement activities, Kalaripayattu-inspired
+                  practices, physical awareness, and interactive exercises.
+                </p>
+              </div>
             </div>
           </FadeUp>
+
           <FadeUp delay={0.1}>
-            <div className="rounded-sm border border-bone/10 bg-coal/60 p-8" data-testid="masterclass-panel">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
-                Masterclasses & workshops led for
-              </p>
-              <ul className="mt-6 grid grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2">
-                {MASTERCLASSES.map((m) => (
-                  <li key={m} className="text-[13px] leading-relaxed text-bone/75">
-                    {m}
-                  </li>
-                ))}
-              </ul>
+            <div className="flex flex-col justify-between rounded-sm border border-bone/10 bg-coal/60 p-8" data-testid="masterclass-panel">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">
+                  Masterclasses & Sessions Led For
+                </p>
+                <ul className="mt-5 grid grid-cols-1 gap-x-8 gap-y-2.5 sm:grid-cols-2">
+                  {MASTERCLASSES.map((m) => (
+                    <li key={m} className="text-[13px] leading-relaxed text-bone/75">
+                      {m}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8 border-t border-bone/10 pt-6">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Training Approach</p>
+                  <p className="mt-2 text-sm leading-relaxed text-sand">
+                    Every class is designed to encourage participants to learn at their own pace while
+                    developing a deeper connection with their bodies. My teaching approach combines
+                    traditional knowledge, practical experience, movement exploration, and structured
+                    physical training.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 border-t border-bone/10 pt-6">
+                <p className="font-serif text-lg font-light text-bone">Start your movement journey.</p>
+                <p className="mt-1 text-xs text-sand">
+                  Get in touch to enquire about classes, workshops, and training programs.
+                </p>
+                <button
+                  onClick={() => scrollToId("contact")}
+                  className="mt-4 rounded-full border border-gold/60 px-6 py-2.5 font-mono text-[11px] uppercase tracking-[0.2em] text-gold transition-colors duration-300 hover:bg-gold hover:text-ink"
+                >
+                  Enquire Now
+                </button>
+              </div>
             </div>
           </FadeUp>
         </div>
