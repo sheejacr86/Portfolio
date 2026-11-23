@@ -44,6 +44,7 @@ function apiMockPlugin() {
 }
 
 export default defineConfig({
+  base: './',
   plugins: [react(), apiMockPlugin()],
   resolve: {
     alias: {
@@ -55,5 +56,9 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+  },
+  preview: {
+    port: 4173,
+    host: '127.0.0.1',
   },
 });
