@@ -4,8 +4,9 @@ import { FadeUp, SectionHead, EASE } from "./motion-primitives";
 
 const STATS = [
   { v: "1983", l: "Kalari Foundation", s: "Vallabhatta Kalari Sangam, Chavakkad, Kerala" },
+  { v: "3×", l: "State champion", s: "Kerala Kalaripayat Association — three years in a row" },
+  { v: "2×", l: "National champion", s: "Full combat Kalaripayattu winner (1990, 1997)" },
   { v: "40+", l: "Years of Practice", s: "Martial arts, contemporary dance & physical performance" },
-  { v: "2×", l: "National Champion", s: "Full combat Kalaripayattu winner (1990, 1997)" },
 ];
 
 const PRACTICE_PILLARS = [
@@ -132,19 +133,11 @@ export default function About() {
                   Through Kalari and contemporary movement, I continue to explore the boundaries between
                   martial art and dance, tradition and innovation, strength and sensitivity.
                 </p>
-                <div className="mt-5 border-l-2 border-gold/60 py-1 pl-4">
-                  <p className="font-serif text-base font-light text-bone sm:text-lg">
-                    3× State Champion
-                  </p>
-                  <p className="mt-0.5 text-xs text-sand">
-                    Kerala Kalaripayat Association — three years in a row.
-                  </p>
-                </div>
               </div>
             </FadeUp>
           </div>
 
-          <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-bone/10 bg-bone/10 sm:grid-cols-3" data-testid="about-stats">
+          <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-sm border border-bone/10 bg-bone/10 sm:grid-cols-2 lg:grid-cols-4" data-testid="about-stats">
             {STATS.map((s, i) => (
               <FadeUp key={s.v} delay={0.1 + i * 0.08} className="bg-coal p-7">
                 <p className="font-serif text-4xl font-light text-gold">{s.v}</p>
