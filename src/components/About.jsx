@@ -132,6 +132,14 @@ export default function About() {
                   Through Kalari and contemporary movement, I continue to explore the boundaries between
                   martial art and dance, tradition and innovation, strength and sensitivity.
                 </p>
+                <div className="mt-5 border-l-2 border-gold/60 py-1 pl-4">
+                  <p className="font-serif text-base font-light text-bone sm:text-lg">
+                    3× State Champion
+                  </p>
+                  <p className="mt-0.5 text-xs text-sand">
+                    Kerala Kalaripayat Association — three years in a row.
+                  </p>
+                </div>
               </div>
             </FadeUp>
           </div>
