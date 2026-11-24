@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { WORKS } from "../data/content";
+import { WORKS, ARTISTIC_PRODUCTIONS, COLLABORATIONS } from "../data/content";
 import { downloadCV } from "../data/cv";
 import { FadeUp, SectionHead, EASE } from "./motion-primitives";
 
@@ -13,11 +13,11 @@ export default function Works() {
         <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHead
             num="03"
-            label="Selected works"
+            label="Works"
             title={
               <>
-                Four decades of choreography, performance
-                <span className="italic text-gold"> & the martial in motion.</span>
+                A journey through movement,
+                <span className="italic text-gold"> performance, and choreography.</span>
               </>
             }
           />
@@ -37,7 +37,16 @@ export default function Works() {
           </FadeUp>
         </div>
 
-        <div className="mt-16 border-t border-bone/10">
+        <FadeUp delay={0.1}>
+          <p className="mt-8 max-w-3xl text-sm leading-relaxed text-sand sm:text-base">
+            My work explores the intersection of Kalaripayattu, contemporary dance, theatre, cinema,
+            and physical expression. From stage productions and site-specific performances to film
+            choreography and movement training, each project represents a different exploration of
+            the body and its expressive possibilities.
+          </p>
+        </FadeUp>
+
+        <div className="mt-14 border-t border-bone/10">
           {WORKS.map((w, i) => {
             const isOpen = open === w.id;
             return (
@@ -46,7 +55,7 @@ export default function Works() {
                   <button
                     data-testid={`work-row-${w.id}`}
                     onClick={() => setOpen(isOpen ? null : w.id)}
-                    className="group grid w-full grid-cols-[auto_1fr_auto] items-baseline gap-4 py-6 text-left sm:grid-cols-[3rem_1fr_auto_5rem] sm:gap-8 sm:py-8"
+                    className="group grid w-full grid-cols-[auto_1fr_auto] items-baseline gap-4 py-6 text-left sm:grid-cols-[3rem_1fr_auto_7rem] sm:gap-8 sm:py-8"
                     aria-expanded={isOpen}
                   >
                     <span className="font-mono text-xs text-terra">
@@ -100,6 +109,41 @@ export default function Works() {
               </FadeUp>
             );
           })}
+        </div>
+
+        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
+          <FadeUp delay={0.1}>
+            <div className="rounded-sm border border-bone/10 bg-coal/60 p-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Artistic Productions</p>
+              <div className="mt-5 flex flex-wrap gap-2.5">
+                {ARTISTIC_PRODUCTIONS.map((p) => (
+                  <span
+                    key={p}
+                    className="rounded-full border border-bone/15 px-4 py-1.5 font-serif text-sm italic text-bone/90"
+                  >
+                    {p}
+                  </span>
+                ))}
+              </div>
+              <p className="mt-6 text-xs leading-relaxed text-sand">
+                Each work reflects my ongoing exploration of movement, culture, martial arts,
+                contemporary performance, and storytelling.
+              </p>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.15}>
+            <div className="rounded-sm border border-bone/10 bg-coal/60 p-8">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Collaborations & Performances</p>
+              <ul className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
+                {COLLABORATIONS.map((c) => (
+                  <li key={c} className="text-xs leading-relaxed text-bone/75">
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </FadeUp>
         </div>
       </div>
     </section>

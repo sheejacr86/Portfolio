@@ -46,13 +46,31 @@ export default function Contact() {
             label="Contact"
             title={
               <>
-                Bring Kalaripayattu to your stage, studio
-                <span className="italic text-gold"> or company.</span>
+                Let's connect through
+                <span className="italic text-gold"> movement.</span>
               </>
             }
           />
+
+          <FadeUp delay={0.1}>
+            <p className="mt-8 max-w-xl text-sm leading-relaxed text-sand sm:text-base">
+              Whether you are interested in Kalaripayattu training, contemporary movement,
+              choreography, workshops, performances, collaborations, or artistic projects, I would
+              love to hear from you. Feel free to reach out for class enquiries, workshop bookings,
+              choreography, movement training, performances, or collaborations.
+            </p>
+          </FadeUp>
+
           <div className="mt-12 space-y-1" data-testid="contact-links">
             <FadeUp>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Artist</p>
+              <p className="mt-2 font-serif text-2xl font-light text-bone sm:text-3xl">
+                {CONTACT.name}
+              </p>
+              <p className="mt-1 font-mono text-xs text-sand">Location: {CONTACT.location}</p>
+            </FadeUp>
+
+            <FadeUp delay={0.06} className="pt-6">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Phone</p>
               <div className="mt-3 flex flex-col gap-1">
                 {CONTACT.phones.map((p, i) => (
@@ -68,7 +86,8 @@ export default function Contact() {
                 ))}
               </div>
             </FadeUp>
-            <FadeUp delay={0.08} className="pt-8">
+
+            <FadeUp delay={0.12} className="pt-6">
               <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Email</p>
               <a
                 data-testid="contact-email"
@@ -78,20 +97,33 @@ export default function Contact() {
                 {CONTACT.email}
               </a>
             </FadeUp>
-            <FadeUp delay={0.14} className="pt-8">
-              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Blog</p>
-              <a
-                data-testid="contact-blog"
-                href={CONTACT.blog}
-                target="_blank"
-                rel="noreferrer"
-                className="group mt-3 flex w-fit items-baseline gap-3 font-serif text-2xl font-light text-bone transition-colors hover:text-gold sm:text-3xl"
-              >
-                {CONTACT.blogLabel}
-                <span className="font-mono text-xs text-terra opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">↗</span>
-              </a>
+
+            <FadeUp delay={0.18} className="pt-6">
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Website & Blog</p>
+              <div className="mt-3 flex flex-col gap-2">
+                <a
+                  href={`https://${CONTACT.website}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex w-fit items-baseline gap-3 font-serif text-xl font-light text-bone transition-colors hover:text-gold sm:text-2xl"
+                >
+                  {CONTACT.website}
+                  <span className="font-mono text-xs text-terra opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">↗</span>
+                </a>
+                <a
+                  data-testid="contact-blog"
+                  href={CONTACT.blog}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex w-fit items-baseline gap-3 font-serif text-xl font-light text-sand transition-colors hover:text-gold sm:text-2xl"
+                >
+                  {CONTACT.blogLabel}
+                  <span className="font-mono text-xs text-terra opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100">↗</span>
+                </a>
+              </div>
             </FadeUp>
-            <FadeUp delay={0.2} className="flex flex-wrap gap-4 pt-10">
+
+            <FadeUp delay={0.24} className="flex flex-wrap gap-4 pt-8">
               <a
                 data-testid="contact-whatsapp"
                 href={CONTACT.whatsapp}
@@ -106,75 +138,80 @@ export default function Contact() {
         </div>
 
         <FadeUp delay={0.1}>
-          <form
-            data-testid="contact-form"
-            onSubmit={submit}
-            className="rounded-sm border border-bone/10 bg-ink p-7 sm:p-10"
-          >
-            <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Enquiry</p>
-            <div className="mt-8 space-y-6">
-              <div>
-                <label htmlFor="cf-name" className="font-mono text-[10px] uppercase tracking-[0.25em] text-sand">Name *</label>
-                <input
-                  id="cf-name"
-                  data-testid="contact-input-name"
-                  required
-                  minLength={2}
-                  value={form.name}
-                  onChange={set("name")}
-                  placeholder="Your name"
-                  className="mt-2 w-full border-b border-bone/20 bg-transparent pb-3 text-bone placeholder:text-bone/25 focus:border-gold"
-                />
-              </div>
-              <div>
-                <label htmlFor="cf-contact" className="font-mono text-[10px] uppercase tracking-[0.25em] text-sand">Phone or email *</label>
-                <input
-                  id="cf-contact"
-                  data-testid="contact-input-contact"
-                  required
-                  minLength={5}
-                  value={form.contact}
-                  onChange={set("contact")}
-                  placeholder="+91 …"
-                  className="mt-2 w-full border-b border-bone/20 bg-transparent pb-3 text-bone placeholder:text-bone/25 focus:border-gold"
-                />
-              </div>
-              <div>
-                <label htmlFor="cf-interest" className="font-mono text-[10px] uppercase tracking-[0.25em] text-sand">Interested in</label>
-                <select
-                  id="cf-interest"
-                  data-testid="contact-select-interest"
-                  value={form.interest}
-                  onChange={set("interest")}
-                  className="mt-2 w-full border-b border-bone/20 bg-transparent pb-3 text-bone focus:border-gold [&>option]:bg-ink"
+          <div className="rounded-sm border border-bone/10 bg-ink p-7 sm:p-10">
+            <form data-testid="contact-form" onSubmit={submit}>
+              <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-gold">Enquiry</p>
+              <div className="mt-8 space-y-6">
+                <div>
+                  <label htmlFor="cf-name" className="font-mono text-[10px] uppercase tracking-[0.25em] text-sand">Name *</label>
+                  <input
+                    id="cf-name"
+                    data-testid="contact-input-name"
+                    required
+                    minLength={2}
+                    value={form.name}
+                    onChange={set("name")}
+                    placeholder="Your name"
+                    className="mt-2 w-full border-b border-bone/20 bg-transparent pb-3 text-bone placeholder:text-bone/25 focus:border-gold"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="cf-contact" className="font-mono text-[10px] uppercase tracking-[0.25em] text-sand">Email Address or Phone Number *</label>
+                  <input
+                    id="cf-contact"
+                    data-testid="contact-input-contact"
+                    required
+                    minLength={5}
+                    value={form.contact}
+                    onChange={set("contact")}
+                    placeholder="Email or phone number"
+                    className="mt-2 w-full border-b border-bone/20 bg-transparent pb-3 text-bone placeholder:text-bone/25 focus:border-gold"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="cf-interest" className="font-mono text-[10px] uppercase tracking-[0.25em] text-sand">Subject / Interested in</label>
+                  <select
+                    id="cf-interest"
+                    data-testid="contact-select-interest"
+                    value={form.interest}
+                    onChange={set("interest")}
+                    className="mt-2 w-full border-b border-bone/20 bg-transparent pb-3 text-bone focus:border-gold [&>option]:bg-ink"
+                  >
+                    {INTERESTS.map((o) => (
+                      <option key={o}>{o}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="cf-message" className="font-mono text-[10px] uppercase tracking-[0.25em] text-sand">Message *</label>
+                  <textarea
+                    id="cf-message"
+                    data-testid="contact-input-message"
+                    required
+                    rows={3}
+                    value={form.message}
+                    onChange={set("message")}
+                    placeholder="Tell me about your project, workshop requirements, or class enquiry…"
+                    className="mt-2 w-full resize-none border-b border-bone/20 bg-transparent pb-3 text-bone placeholder:text-bone/25 focus:border-gold"
+                  />
+                </div>
+                <button
+                  data-testid="contact-submit-btn"
+                  type="submit"
+                  disabled={sending}
+                  className="w-full rounded-full bg-gold py-4 text-sm font-medium tracking-wide text-ink transition-all duration-300 hover:bg-gild disabled:opacity-50"
                 >
-                  {INTERESTS.map((o) => (
-                    <option key={o}>{o}</option>
-                  ))}
-                </select>
+                  {sending ? "Sending…" : "Send Message"}
+                </button>
               </div>
-              <div>
-                <label htmlFor="cf-message" className="font-mono text-[10px] uppercase tracking-[0.25em] text-sand">Message</label>
-                <textarea
-                  id="cf-message"
-                  data-testid="contact-input-message"
-                  rows={3}
-                  value={form.message}
-                  onChange={set("message")}
-                  placeholder="Dates, group size, city…"
-                  className="mt-2 w-full resize-none border-b border-bone/20 bg-transparent pb-3 text-bone placeholder:text-bone/25 focus:border-gold"
-                />
-              </div>
-              <button
-                data-testid="contact-submit-btn"
-                type="submit"
-                disabled={sending}
-                className="w-full rounded-full bg-gold py-4 text-sm font-medium tracking-wide text-ink transition-all duration-300 hover:bg-gild disabled:opacity-50"
-              >
-                {sending ? "Sending…" : "Send enquiry"}
-              </button>
+            </form>
+
+            <div className="mt-8 border-t border-bone/10 pt-6 text-center">
+              <p className="font-serif text-sm italic text-sand">
+                Let's explore the possibilities of movement together.
+              </p>
             </div>
-          </form>
+          </div>
         </FadeUp>
       </div>
     </section>
